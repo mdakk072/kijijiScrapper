@@ -1,0 +1,881 @@
+{
+    "isNewCarAd": false,
+    "multiLocationUrl": null,
+    "externalSourceId": 9001,
+    "postersCompanyName": "Saturne L\u00e9vis",
+    "staticMapImageUrl": "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDVZWjkKzyq2GcaIpGMsLfMVSjusEEUa40&channel=box-canada&center=46.734930,-71.258940&zoom=15&size=350x140&markers=anchor:14,40%7Cicon:https://box-static.ca-kijiji-production.classifiedscloud.io/v-2051/img/icon/icon_map_pin.png%7C46.734930,-71.258940&signature=5TJN49jIwL-_927Hec6yERYmthI=",
+    "contactPosterFromName": null,
+    "posterOtherAdsUrl": "/o-saturne-levis/1004811032?referral=organic",
+    "editAdUrl": "/p-edit-ad.html?adId=1690700321",
+    "adPosted": false,
+    "tempPhoneNumber": null,
+    "isComFree": false,
+    "postersNumberOfActiveAds": 1,
+    "media": [
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/71/7189d910-7420-4551-a660-48abb58c0ab3?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/71/7189d910-7420-4551-a660-48abb58c0ab3?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/a8/a82bb0d4-c6b4-4319-a1b1-c92acb2650c7?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/a8/a82bb0d4-c6b4-4319-a1b1-c92acb2650c7?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/bd/bdc6a6c3-d273-4016-bdac-e583a84ae045?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/bd/bdc6a6c3-d273-4016-bdac-e583a84ae045?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/60/60b91c58-ca17-4b65-ac6e-b825eff63b2a?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/60/60b91c58-ca17-4b65-ac6e-b825eff63b2a?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/92/92df464b-f3ba-4cf7-bf93-caf40041cad6?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/92/92df464b-f3ba-4cf7-bf93-caf40041cad6?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/5f/5fcb3339-85e9-4181-92fb-8152349e1148?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/5f/5fcb3339-85e9-4181-92fb-8152349e1148?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/c5/c5e91239-b3b3-415d-8191-5134c2af63c3?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/c5/c5e91239-b3b3-415d-8191-5134c2af63c3?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/52/5235d1e7-5f02-4a8f-99c0-037da132ad93?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/52/5235d1e7-5f02-4a8f-99c0-037da132ad93?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/51/512dd83f-9f84-486a-b093-ed224e868783?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/51/512dd83f-9f84-486a-b093-ed224e868783?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f5/f504a707-36d2-4e9b-bec8-f09a7070196d?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f5/f504a707-36d2-4e9b-bec8-f09a7070196d?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/e7/e7074057-2ea8-4eed-a6c7-92bd4a0c94f9?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/e7/e7074057-2ea8-4eed-a6c7-92bd4a0c94f9?rule=kijijica-64-jpg"
+        },
+        {
+            "type": "image",
+            "href": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/eb/eb0a236a-2d42-4f70-a24b-1b9ebec0854e?rule=kijijica-960-jpg",
+            "thumbnail": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/eb/eb0a236a-2d42-4f70-a24b-1b9ebec0854e?rule=kijijica-64-jpg"
+        }
+    ],
+    "userType": "KMB",
+    "displayPhoneNumberField": false,
+    "isRealEstateKitAd": true,
+    "isGmOem": false,
+    "posterId": 1004811032,
+    "isSpinCar": false,
+    "price": {
+        "amount": 129500,
+        "type": "FIXED"
+    },
+    "isMoveListing": false,
+    "cpoClickUrl": null,
+    "applicationLink": null,
+    "sellerName": null,
+    "adEdited": false,
+    "isRetailKitAd": false,
+    "isPintAd": true,
+    "adData": {
+        "chatOptIn": false,
+        "moveVipUrl": null,
+        "showPinOnMap": true,
+        "virtualTourUrl": null,
+        "tradeInOptIn": false,
+        "moveVipUrlFr": null,
+        "hasEnhancedLeadForm": false,
+        "province": "QC",
+        "originalPrice": null,
+        "salesforceId": "0014000001df4nX",
+        "rentalBadge": null,
+        "creditOptIn": false
+    },
+    "isMlsAd": false,
+    "posterOtherAds": [
+        {
+            "id": 1690700321,
+            "title": "St-Romuald, 4\u00bd disponible, 1er juin, 3e \u00e9tage",
+            "description": "\u00c0 moins de 5 minutes des ponts Pierre-Laporte et de Qu\u00e9bec Dans le nouveau secteur en plein d\u00e9veloppement \u00e0 St-Romuald Appartement style condo avec entr\u00e9e ind\u00e9pendante. Grand 4 1/2 , 1 200 pieds ...",
+            "price": {
+                "amount": 129500,
+                "type": "FIXED"
+            },
+            "normalUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/71/7189d910-7420-4551-a660-48abb58c0ab3?rule=kijijica-200-jpg",
+            "seoUrl": "/v-appartement-condo/levis/st-romuald-4-disponible-1er-juin-3e-etage/1690700321",
+            "originalPrice": null
+        }
+    ],
+    "isCasAd": false,
+    "customTabs": [
+        {
+            "tabId": "DESCRIPTION",
+            "tabType": null,
+            "labelImage": null,
+            "labelTitle": "Description",
+            "labelSubtitle": null,
+            "jspContentTabId": "../includes/tabs/descriptionTab.inc.jsp",
+            "dfpTileIndex": null
+        }
+    ],
+    "breadCrumbs": [
+        {
+            "name": "Accueil",
+            "url": "/h-levis/1700063"
+        },
+        {
+            "name": "Immobilier",
+            "url": "/b-immobilier/levis/c34l1700063"
+        },
+        {
+            "name": "\u00c0 louer",
+            "url": "/b-a-louer/levis/c30349001l1700063"
+        },
+        {
+            "name": "Locations longue dur\u00e9e  \u00e0 L\u00e9vis",
+            "url": "/b-appartement-condo/levis/c37l1700063"
+        }
+    ],
+    "locationId": 1700063,
+    "displayFileUploadButton": false,
+    "visitCounter": 47,
+    "userEmail": "pint-393ceec9-ea44-4155-a2f2-721d09cb3434@kijiji.ca",
+    "hasCreditAppForm": false,
+    "loggedInUser": false,
+    "sortingDate": 1713104825000,
+    "seoUrl": "https://www.kijiji.ca/v-appartement-condo/levis/st-romuald-4-disponible-1er-juin-3e-etage/1690700321?siteLocale=fr_CA",
+    "totalPending": null,
+    "sharingUrl": "https://www.kijiji.ca/v-appartement-condo/levis/st-romuald-4-disponible-1er-juin-3e-etage/1690700321?siteLocale=fr_CA",
+    "adEditedWithPayment": false,
+    "anonymizeReplies": false,
+    "gptData": {
+        "gptSlotName": "/5138/kij.ca.housing-fr/appartements__condos",
+        "gptSlotNameSuffix": "housing-fr/appartements__condos",
+        "gptTargetting": {
+            "sub": "levis",
+            "ab": "0",
+            "pt": "VIP",
+            "l1": "housing-fr",
+            "hn": "kijiji.ca",
+            "l2": "a_louer",
+            "l3": "appartements__condos",
+            "lt": "c",
+            "price": "1295",
+            "pagetype": "viewitem",
+            "bellfibe": "ftth",
+            "city": "chaudiere-appalaches",
+            "furn": "no",
+            "g_prebid_version": "7.5.0",
+            "lang": "fr",
+            "province": "quebec",
+            "ct": "[\"37\", \"30349001\", \"34\"]",
+            "dv": "d",
+            "HBL": "yes",
+            "bath": "1",
+            "pets": "limited",
+            "propmgr": "saturnelvis",
+            "reg_user": "no",
+            "g_adid": "1690700321",
+            "lc": "1700063",
+            "webappname": "box_gcp",
+            "forrentby": "professional",
+            "type": "OFFER",
+            "li": "no",
+            "bdrm": "2"
+        },
+        "gptImpressionPixelSuffix": "/kij.ca.housing-fr/appartements__condos",
+        "ppid": null,
+        "ot": null
+    },
+    "showAdActivatedMessage": false,
+    "cpoImageUrl": null,
+    "isPaid": true,
+    "contactPosterFrom": null,
+    "fesCasR2SModel": null,
+    "adLocation": {
+        "latitude": 46.73493,
+        "longitude": -71.25894,
+        "mapAddress": "rue de Saturne, L\u00e9vis, QC, G6W 8H8",
+        "province": "quebec",
+        "mapRadius": 0
+    },
+    "title": "St-Romuald, 4\u00bd disponible, 1er juin, 3e \u00e9tage",
+    "isJobsKitAd": false,
+    "categoryId": 37,
+    "locationPath": [
+        0,
+        9001,
+        1700062,
+        1700063
+    ],
+    "adAttributes": [
+        {
+            "machineKey": "forrentbyhousing",
+            "machineValue": "reprofessional",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "For Rent By",
+                    "value": "Professional"
+                },
+                "fr": {
+                    "label": "\u00c0 louer par",
+                    "value": "Professionnel"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "unittype",
+            "machineValue": "apartment",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Unit Type",
+                    "value": "Apartment"
+                },
+                "fr": {
+                    "label": "Type de logement",
+                    "value": "Appartement"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "numberbedrooms",
+            "machineValue": "2",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Bedrooms",
+                    "value": "2"
+                },
+                "fr": {
+                    "label": "Pi\u00e8ces",
+                    "value": "4 1/2"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "numberbathrooms",
+            "machineValue": "10",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Bathrooms",
+                    "value": "1"
+                },
+                "fr": {
+                    "label": "Salles de bain",
+                    "value": "1"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "agreementtype",
+            "machineValue": "one-year",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Agreement Type",
+                    "value": "1 Year"
+                },
+                "fr": {
+                    "label": "Dur\u00e9e du bail",
+                    "value": "1 an"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "dateavailable",
+            "machineValue": "2024-06-01T00:00:00Z",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Move-In Date",
+                    "value": null
+                },
+                "fr": {
+                    "label": "Date d'emm\u00e9nagement",
+                    "value": null
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "petsallowed",
+            "machineValue": "limited",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Pet Friendly",
+                    "value": "Limited"
+                },
+                "fr": {
+                    "label": "Animaux accept\u00e9s",
+                    "value": "Limit\u00e9"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "areainfeet",
+            "machineValue": "1200",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Size (sqft)",
+                    "value": null
+                },
+                "fr": {
+                    "label": "Taille (pieds carr\u00e9s)",
+                    "value": null
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "furnished",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Furnished",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Meubl\u00e9",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "laundryinunit",
+            "machineValue": "1",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Laundry (In Unit)",
+                    "value": "Yes"
+                },
+                "fr": {
+                    "label": "Buanderie (dans l'appartement)",
+                    "value": "Oui"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "laundryinbuilding",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Laundry (In Building)",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Buanderie (dans l'immeuble)",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "dishwasher",
+            "machineValue": "1",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Dishwasher",
+                    "value": "Yes"
+                },
+                "fr": {
+                    "label": "Lave-vaisselle",
+                    "value": "Oui"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "fridgefreezer",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Fridge / Freezer",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "R\u00e9frig\u00e9rateur / cong\u00e9lateur",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "airconditioning",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Air Conditioning",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Air conditionn\u00e9",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "yard",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Yard",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Jardin",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "balcony",
+            "machineValue": "1",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Balcony",
+                    "value": "Yes"
+                },
+                "fr": {
+                    "label": "Balcon",
+                    "value": "Oui"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "smokingpermitted",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Smoking Permitted",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Fumeurs accept\u00e9s",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "gym",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Gym",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Salle de sport",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "pool",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Pool",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Piscine",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "concierge",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Concierge",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Concierge",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "twentyfourhoursecurity",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "24 Hour Security",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "S\u00e9curit\u00e9 24 heures sur 24",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "bicycleparking",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Bicycle Parking",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Stationnement pour v\u00e9los",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "storagelocker",
+            "machineValue": "1",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Storage Space",
+                    "value": "Yes"
+                },
+                "fr": {
+                    "label": "espace de stockage",
+                    "value": "Oui"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "elevator",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Elevator in Building",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Ascenseur",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "wheelchairaccessible",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Wheelchair accessible",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Accessible en fauteuil roulant",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "braillelabels",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Braille Labels",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Affichage en braille",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "audioprompts",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Audio Prompts",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Messages sonores",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "barrierfreeentrancesandramps",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Barrier-free Entrances and Ramps",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Entr\u00e9es et rampes d'acc\u00e8s sans obstacle",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "visualaids",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Visual Aids",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Aides visuelles",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "accessiblewashroomsinsuite",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Accessible Washrooms in Suite",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Toilettes accessibles",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "hydro",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Hydro",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "\u00c9lectricit\u00e9",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "heat",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Heat",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Chauffage",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "water",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Water",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Eau",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "cabletv",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Cable / TV",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "C\u00e2ble / t\u00e9l\u00e9",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "internet",
+            "machineValue": "0",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Internet",
+                    "value": "No"
+                },
+                "fr": {
+                    "label": "Internet",
+                    "value": "Non"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "numberparkingspots",
+            "machineValue": "2",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Parking Included",
+                    "value": "2"
+                },
+                "fr": {
+                    "label": "Stationnement inclus",
+                    "value": "2"
+                }
+            },
+            "attributeLink": null
+        },
+        {
+            "machineKey": "rentalsvirtualoptions",
+            "machineValue": "[virtualtour]",
+            "displayable": true,
+            "booleanAttribute": false,
+            "localeSpecificValues": {
+                "en": {
+                    "label": "Additional Options",
+                    "value": null
+                },
+                "fr": {
+                    "label": "Options suppl\u00e9mentaires",
+                    "value": null
+                }
+            },
+            "attributeLink": null
+        }
+    ],
+    "externalPartnerAdId": null,
+    "repostReasons": [
+        {
+            "name": "AD_HAS_NOT_WORKED",
+            "messageEN": "This ad hasn't worked yet",
+            "messageFR": "Cette annonce n'a pas encore eu de succ\u00e8s"
+        },
+        {
+            "name": "AD_IS_WORKING",
+            "messageEN": "This ad is working",
+            "messageFR": "Cette annonce a du succ\u00e8s"
+        }
+    ],
+    "replyEmailNameRequired": true,
+    "description": "\u00c0 moins de 5 minutes des ponts Pierre-Laporte et de Qu\u00e9bec<br>Dans le nouveau secteur en plein d\u00e9veloppement \u00e0 St-Romuald<br><br>Appartement style condo avec entr\u00e9e ind\u00e9pendante.<br>Grand 4 1/2 , 1 200 pieds carr\u00e9s.<br><br>Construction r\u00e9cente;<br>Entr\u00e9e priv\u00e9e;<br>Air Climatis\u00e9 mural install\u00e9e en juillet;<br>Planchers de bois flottant et c\u00e9ramique;<br>Armoires modernes.<br>Grandes fen\u00eatres.<br>Bain podium et douche en coin.<br>Bonne insonorisation.<br>Beaucoup de rangement + remise ext\u00e9rieure.<br>2 stationnements inclus.<br>Bien desservi par le transport en commun vers Qu\u00e9bec et L\u00e9vis, www.stlevis.ca<br><br>Les chiens sont interdits.<br>Photos \u00e0 titre indicatif<br><b></b>",
+    "features": {
+        "featured": false,
+        "reduced": false,
+        "pricedrop": false,
+        "urgent": false
+    },
+    "adType": "OFFER",
+    "adId": 1690700321,
+    "l1CategoryId": 34,
+    "adSource": "O",
+    "isPreview": false
+}
