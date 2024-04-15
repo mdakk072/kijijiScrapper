@@ -1,0 +1,24 @@
+
+db_path : "sqlite:///data/db/Kijiji.db"
+log_path : "data/log/app.log"
+
+headers : 
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    Accept-Language: "en-US,en;q=0.5"
+    Accept-Encoding: "gzip, deflate, br"
+    Connection: "keep-alive"
+    Upgrade-Insecure-Requests: "1"
+    Cache-Control: "max-age=0"
+pagination_scrapper:
+  base_url : "https://www.kijiji.ca/b-appartement-condo/levis/page-{page}/c37l1700063?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
+  url_settings:
+    address: 'QC'
+    latitude: '47.73214339999999'
+    longitude: '-70.2637793'
+    radius: '6.0'
+    sort: 'dateDesc'
+    start_page: 1
+
+
+
