@@ -53,6 +53,7 @@ class KijijiPaginationFSM:
             try:
                 formated_url = self.kijiji_scraper.format_url(self.base_url, self.url_settings)
                 self.response = self.kijiji_scraper.fetch_pagination(formated_url,self.start_page)
+                self.logger.info(f"Fetching page {self.start_page}")
                 return self.current_state.GET_JSON_TAG
             except Exception as e:
                 return self.current_state.END
@@ -74,6 +75,7 @@ class KijijiPaginationFSM:
 
         elif self.current_state == self.current_state.ADD_DATA:
             added_data_count = sum(self.db.add_listing(data) for data in self.formatted_data)
+            self.logger.info(f"Added  {added_data_count}/{len(self.formatted_data)} listings to the database.") 
             if added_data_count == 0:return self.current_state.END
             else:return self.current_state.INC_PAGE
             

@@ -25,7 +25,7 @@ class BaseScraper:
         try:
             response = requests.get(url, headers=headers)
             response.raise_for_status()  # Raises an HTTPError for bad responses
-            self.logger.info("Page fetched successfully: %s", url)
+            self.logger.debug("Page fetched successfully: %s", url)
             return response
         except requests.exceptions.RequestException as e:
             self.logger.error("Failed to fetch page %s: %s", url, str(e))

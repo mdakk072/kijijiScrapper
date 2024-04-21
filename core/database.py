@@ -17,7 +17,6 @@ class KijijiAd(Base):
     attributes = Column(Text)  # Storing as a JSON string key value pair
     images = Column(Text)  # Storing as a JSON string list keep it like that in csv
     url = Column(String, unique=True)
-    activation_date = Column(String)
     sorting_date = Column(String)
     _processState = Column(String)
     _state = Column(String)
@@ -59,7 +58,6 @@ class Database:
         try:
             # Check if the listing already exists to prevent duplicate entries
             if session.query(KijijiAd.id).filter_by(url=listing_data.get('url')).scalar() is not None:
-                self.logger.info("Listing already exists with URL: %s", listing_data.get('url'))
                 return 0
 
             # Create a new listing instance
@@ -71,7 +69,6 @@ class Database:
                     attributes=json.dumps(listing_data['attributes']),
                     images=json.dumps(listing_data['images']),
                     url=listing_data['url'],
-                    activation_date=listing_data['activation_date'],
                     sorting_date=listing_data['sorting_date'],
                     _processState=listing_data['_processState'],
                     _state=listing_data['_state'],
@@ -80,7 +77,7 @@ class Database:
             # Add to session and commit
             session.add(listing)
             session.commit()
-            self.logger.info("New listing added successfully: %s", listing)
+            self.logger.debug("New listing added successfully: %s", listing)
             return 1
 
         except IntegrityError:
@@ -124,7 +121,7 @@ class Database:
                     serialized_value = json.dumps(value, ensure_ascii=False) if key in ['attributes', 'images', 'location'] else value
                     setattr(listing, key, serialized_value)
             session.commit()
-            self.logger.info(f"Listing {id} updated successfully.")
+            self.logger.debug(f"Listing {id} updated successfully.")
             return True
         except NoResultFound:
             # Log and handle the case where no listing is found
@@ -180,7 +177,7 @@ class Database:
                                .order_by(func.random())\
                                .first()
             if random_ad:
-                self.logger.info(f"Random new ad fetched successfully: {random_ad.id}")
+                self.logger.debug(f"Random new ad fetched successfully: {random_ad.id}")
             else:
                 self.logger.info("No new ads available to fetch.")
             return random_ad
