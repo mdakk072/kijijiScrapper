@@ -7,7 +7,7 @@ class Utils:
     _logger = None  # Class-level attribute to hold the logger
     
     @staticmethod
-    def setup_logging(file_path='data/log/app.log'):
+    def setup_logging(file_path='data/log/app.log', debug=False):
         # Extract the directory part from the file_path
         logs_folder = os.path.dirname(file_path)
 
@@ -21,7 +21,12 @@ class Utils:
 
         # Create a custom logger
         Utils._logger = logging.getLogger(__name__)
-        Utils._logger.setLevel(logging.DEBUG)  # Set the logging level
+
+        # Set the logging level based on the debug flag
+        if debug:
+            Utils._logger.setLevel(logging.DEBUG)  # Show all debug messages
+        else:
+            Utils._logger.setLevel(logging.INFO)  # Show only info and higher level messages
 
         # Create handlers
         c_handler = logging.StreamHandler()  # Console handler

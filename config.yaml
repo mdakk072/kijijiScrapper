@@ -1,6 +1,9 @@
 
 db_path : "sqlite:///data/db/Kijiji.db"
 log_path : "data/log/app.log"
+log_debug : False
+pagination : True
+completion : True
 
 headers : 
     User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
@@ -13,10 +16,10 @@ headers :
 pagination_scrapper:
   base_url : "https://www.kijiji.ca/b-appartement-condo/levis/page-{page}/c37l1700063?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
   url_settings:
-    address: 'QC'
-    latitude: '47.73214339999999'
-    longitude: '-70.2637793'
-    radius: '6.0'
+    address: 'Côte-des-Neiges, Côte-Des-Neiges—Notre-Dame-De-Grâce, Montreal, QC'
+    latitude: '45.4767847'
+    longitude: '-73.61431329999999'
+    radius: '3.0'
     sort: 'dateDesc'
     start_page: 1
 
