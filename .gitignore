@@ -38,6 +38,7 @@ env.bak/
 
 *.log
 *.sqlite
+data/html_json/**
 
 # Configuration files
 config.yaml

@@ -1,4 +1,5 @@
-from bs4 import BeautifulSoup
+import warnings
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from core.utils import Utils
 
 class AdDataFormatter:
@@ -15,10 +16,9 @@ class AdDataFormatter:
                 "title": ad_data.get("title", ""),
                 "description": ad_data.get("description", ""),
                 "price": self._calculate_price(ad_data),
-                "attributes": self._format_attributes(ad_data),
+                "attributes": self._extract_attributes_pagination(ad_data),
                 "images": ad_data.get("imageUrls", []),
                 "url": f"https://www.kijiji.ca{ad_data.get('seoUrl', '')}",
-                "activation_date": ad_data.get("activationDate", ""),
                 "sorting_date": ad_data.get("sortingDate", ""),
                 "_processState": "NEW",
                 "_state": "ACTIVE"
@@ -40,10 +40,9 @@ class AdDataFormatter:
                 "title": extracted_json.get("title", ""),
                 "description": self._clean_description(extracted_json),
                 "price": self._calculate_price(extracted_json),
-                "attributes": self._extract_attributes(extracted_json),
+                "attributes": self._extract_attributes_completion(extracted_json),
                 "images": self._extract_images(extracted_json),
                 "url": ad.url,
-                "activation_date": ad.activation_date,
                 "sorting_date": ad.sorting_date,
                 "address": extracted_json.get("adLocation", {}).get("mapAddress", ""),
                 "location": self._extract_location(extracted_json),
@@ -72,11 +71,13 @@ class AdDataFormatter:
             return amount
         calculated_price = float("{:.2f}".format(amount / 100.0))
         return calculated_price
-    def _format_attributes(self, ad_data):
+    def _extract_attributes_pagination(self, ad_data):
         """ Extract attributes into a dictionary. """
-        return {attr["name"]: (attr["values"] if len(attr['values']) > 1 else attr['values'][0])
-                for attr in ad_data.get("attributes", [])}
-
+        return self._format_attributes( {attr["name"]: (attr["values"] if len(attr['values']) > 1 else attr['values'][0])
+                for attr in ad_data.get("attributes", [])} )
+    def _extract_attributes_completion(self, json_data):
+        """ Extract attributes from json_data. """
+        return self._format_attributes({attr['machineKey']: attr['machineValue'] for attr in json_data.get("adAttributes", [])})
     def _extract_images(self, json_data):
         """ Extract images if available. """
         return [item["href"] for item in json_data.get("media", []) if item["type"] == "image"]
@@ -89,13 +90,86 @@ class AdDataFormatter:
         }
 
     def _clean_description(self, json_data):
-        """ Clean and format the description field. """
+        """Clean and format the description field."""
         description = json_data.get("description", "")
-        return BeautifulSoup(description, "lxml").text.strip().replace("\n", " ")
 
-    def _extract_attributes(self, json_data):
-        """ Extract attributes from json_data. """
-        return {attr['machineKey']: attr['machineValue'] for attr in json_data.get("adAttributes", [])}
+        # Attempt to handle HTML/XML content
+        try:
+            # Temporarily suppress the specific warning
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", MarkupResemblesLocatorWarning)
+                soup = BeautifulSoup(description, "lxml")
+
+            # Check if the parsed data is not just the original input (i.e., it is real HTML/XML)
+            if soup and len(soup.text.strip()) > 0:
+                return soup.text.strip().replace("\n", " ")
+        except Exception as e:
+            # If parsing fails or it's not HTML/XML, just return the plain text
+            self.logger.error(f"Error parsing description: {e}")
+
+        # Return plain text if it is not HTML/XML
+        return description.strip().replace("\n", " ")
+    
+
+    def _format_attributes(self, attributes):
+        boolean_keys = (
+            "furnished", "laundryinunit", "laundryinbuilding", "dishwasher",
+            "fridgefreezer", "airconditioning", "yard", "balcony", 
+            "smokingpermitted", "gym", "pool", "concierge", "twentyfourhoursecurity",
+            "bicycleparking", "storagelocker", "elevator", "wheelchairaccessible",
+            "braillelabels", "audioprompts", "barrierfreeentrancesandramps",
+            "visualaids", "accessiblewashroomsinsuite", "hydro", "heat",
+            "water", "cabletv", "internet","petsallowed"
+        )
+
+        ignore_keys = (
+            'braillelabels', 'audioprompts', 
+            'barrierfreeentrancesandramps', 'visualaids', 
+            'accessiblewashroomsinsuite', 'rentalsvirtualoptions',
+            'termagreement')
+
+        # Mapping of old keys to new keys
+        rename_keys = {
+            "laundryinunit": "laundry",
+            "laundryinbuilding": "laundry",
+            "fridgefreezer": "fridge",
+            "airconditioning": "air_conditioning",
+            "twentyfourhoursecurity": "security",
+            "wheelchairaccessible": "wheelchair_accessibility",
+            "dateavailable": "available_date",
+            "petsallowed": "pet_friendly"
+        }
+
+        # Convert boolean attributes
+        for key in list(attributes.keys()):
+            if key in ignore_keys:
+                attributes.pop(key)
+            elif key in boolean_keys:
+                attributes[key] = attributes[key] in ["2", "1", 'limited']
+
+        # Renaming keys
+        for old_key, new_key in rename_keys.items():
+            if old_key in attributes:
+                attributes[new_key] = attributes.pop(old_key)
+        
+        if "numberparkingspots" in attributes:
+            if attributes["numberparkingspots"] == "Not Available" or attributes["numberparkingspots"] == "0":
+                attributes["parking"] = False
+            else:
+                attributes["numberparkingspots"] = int(attributes["numberparkingspots"])
+                attributes["parking"] = True
+
+            # Optionally remove "numberparkingspots" from attributes if you always want to clean it up
+            if attributes["parking"] is False:
+                attributes.pop("numberparkingspots", None)  # Use .pop() with None to avoid KeyError if not exist
+        if "numberbathrooms" in attributes: 
+            attributes["numberbathrooms"] = int(attributes["numberbathrooms"])/10
+        if "numberbedrooms" in attributes: 
+            attributes["numberbedrooms"] = float(attributes["numberbathrooms"])
+        if 'areainfeet' in attributes:
+            attributes['areaInFeet'] = float(attributes['areainfeet'])
+            attributes.pop('areainfeet', None)
+        return attributes
 
     def _get_int(self, data, key):
         """ Safely get an integer value from data. """
