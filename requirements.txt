@@ -1,0 +1,13 @@
+pyyaml
+bs4
+requests
+urllib3
+selenium
+pytest 
+requests-mock
+pytest-mock
+lxml
+sqlalchemy
+jsonpath-ng
+pymongo
+pyzmq
