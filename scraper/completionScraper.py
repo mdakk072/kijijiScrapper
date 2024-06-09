@@ -54,7 +54,7 @@ class KijijiCompletionFSM(BaseFSM):
     
     def GOTO_LINK(self):
             url = self.ad.get('url')
-            self.kijiji_scraper.delay_action(1,4)
+            self.kijiji_scraper.delay_action(1.5,3)
             self.response = self.kijiji_scraper.fetch_page(url)
             return self.States.DEAD_AD if self.kijiji_scraper.is_link_dead(self.response) else self.States.extract_ad_JSON
             

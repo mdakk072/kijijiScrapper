@@ -1,4 +1,5 @@
 import argparse
+import time
 from ICD.ConfigICD import ConfigICD
 from ICD.monitoringICD import MonitoringICD
 from core.utils import Utils
@@ -122,6 +123,7 @@ class Main(BaseMain):
                     
                     
                     while not scraper_info['done']:
+                        time.sleep(0.2)
                         scraper_info['done'] = scraper.run(continuous=False)
                         self.update_monitoring(scraper_info)
                         Utils.write_json(self.monitoring.to_dict(),f"data/html_json/scraper_monitoring.json")

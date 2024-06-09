@@ -1,0 +1,35 @@
+
+
+
+  
+# Application configuration
+name: "laptops_ottawa"
+version: "0.1.0.0"
+
+# Logging configuration
+log_path: "data/log/laptops_ottawa.log"
+log_level: "INFO"
+log_console: false
+log_file: true
+
+db_name: "kijiji"
+table_name: "laptops_ottawa"
+db_type: "mongodb" 
+connection_info: "mongodb://10.0.0.110:27017"
+# Scrapper configuration
+do_pagination: true 
+do_completion: false
+
+# Pagination configuration
+pagination:
+  base_url : "https://www.kijiji.ca/b-{category}/levis/page-{start_page}/{category-id}?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
+  start_page: 1
+  max_zero_added: 2
+  url_settings:
+    category: 'laptops'
+    category-id : "c773l1700185"
+    address: '75 Laurier Ave E, Ottawa, ON K1N 1A2, Canada'
+    latitude: '45.4231497'
+    longitude: '-75.6831843'
+    radius: '1.0'
+    sort: 'dateDesc'

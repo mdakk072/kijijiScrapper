@@ -1,0 +1,34 @@
+
+# Application configuration
+name: "rent_Levis"
+version: "0.1.0.0"
+
+# Logging configuration
+log_path: "data/log/rent_Levis.log"
+log_level: "INFO"
+log_console: false
+log_file: true
+
+# Database configuration
+db_name: "kijiji"
+table_name: "rent_Levis"
+db_type: "mongodb"
+connection_info: "mongodb://10.0.0.110:27017"
+
+# Scrapper configuration
+do_pagination: true 
+do_completion: false
+
+# Pagination configuration
+pagination:
+  base_url: "https://www.kijiji.ca/b-{category}/levis/page-{start_page}/{category-id}?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
+  start_page: 1
+  max_zero_added: 2
+  url_settings:
+    category: 'apartments-condos'
+    category-id : "c37l1700063"
+    address: 'Saint-Romuald, Les Chutes-de-la-Chaudière-Est, Levis, QC'
+    latitude: '46.7581417'
+    longitude: '-71.24046299999999'
+    radius: '5.0'
+    sort: 'dateDesc'

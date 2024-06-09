@@ -118,6 +118,7 @@ class KijijiPaginationFSM(BaseFSM):
             State: The next state of the FSM, EXTRACT_LISTINGS if successful, otherwise END.
         """
         try:
+            self.kijiji_scraper.delay_action(1,3)
             formatted_url: str = self.kijiji_scraper.format_url(
                 self.base_url, {**self.url_settings, "start_page": self.start_page}
             )
