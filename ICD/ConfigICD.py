@@ -16,6 +16,7 @@ class ConfigICD:
                  connection_info: Optional[str] = None,
                  do_pagination: Optional[bool] = None,
                  do_completion: Optional[bool] = None,
+                 do_dead_link: Optional[bool] = None,
                  pagination: Optional[Dict[str, Any]] = None):
    
         self.name = name or "APP"
@@ -30,6 +31,7 @@ class ConfigICD:
         self.connection_info = connection_info 
         self.do_pagination = do_pagination if do_pagination is not None else False
         self.do_completion = do_completion if do_completion is not None else False
+        self.do_dead_link = do_dead_link if do_dead_link is not None else False
         self.pagination = PaginationScrapperICD(**(pagination or {}))
 
     def parse(self, data: Dict[str, Any]) -> bool:
@@ -46,7 +48,7 @@ class ConfigICD:
         self.connection_info = data.get("connection_info", self.connection_info)
         self.do_pagination = data.get("do_pagination", self.do_pagination)
         self.do_completion = data.get("do_completion", self.do_completion)
-        
+        self.do_dead_link = data.get("do_dead_link", self.do_dead_link)
         if self.pagination.parse(data.get("pagination", {})) is False:
             return False
         
@@ -129,6 +131,11 @@ class ConfigICD:
                 "label": "Do Completion",
                 "description": "Flag to enable completion scraping."
             },
+            "do_dead_link": {
+                "type": "bool",
+                "label": "Do Dead Link",
+                "description": "Flag to enable dead link scraping."
+            },
             "pagination": PaginationScrapperICD.metadata()
         }
 
@@ -148,6 +155,7 @@ class ConfigICD:
             "connection_info": {"type": "TEXT"},
             "do_pagination": {"type": "INTEGER", "default": 0},
             "do_completion": {"type": "INTEGER", "default": 0},
+            "do_dead_link": {"type": "INTEGER", "default": 0},
             **PaginationScrapperICD.get_schema()
         }
 

@@ -6,6 +6,8 @@ from core.utils import Utils
 from core.baseMain import BaseMain
 from scraper.completionScraper import KijijiCompletionFSM
 from scraper.paginationScraper import KijijiPaginationFSM
+from scraper.deadLinkScraper import KijijiLinkCheckFSM
+
 from datetime import datetime
 from core.ipc import IPC
 class Main(BaseMain):
@@ -98,17 +100,20 @@ class Main(BaseMain):
         based on the configuration.
         """
         # Flags to track completion status of each scraper
-        done_pagination, done_completion = False, False
+        done_pagination, done_completion ,done_deadlinkCheck= False, False , False
 
         # Initialize the pagination scraper if configured to do so
         pagination_scraper = self._initialize_pagination_scraper() if self.config.do_pagination else None
         # Initialize the completion scraper if configured to do so
         completion_scraper = self._initialize_completion_scraper() if self.config.do_completion else None
 
+        dead_link_scraper = self._initialize_dead_link_scraper() if self.config.do_dead_link else None
+
         # List of scrapers with their associated done status and start flag
         scrapers = [
             {'scraper': pagination_scraper, 'done': done_pagination, 'start': False,"scraper_name": "pagination"},
-            {'scraper': completion_scraper, 'done': done_completion, 'start': False,"scraper_name": "completion"}
+            {'scraper': completion_scraper, 'done': done_completion, 'start': False,"scraper_name": "completion"},
+            {'scraper': dead_link_scraper, 'done': done_deadlinkCheck, 'start': False,"scraper_name": "dead_link_check"}
         ]
 
         # Loop until all scrapers have completed their tasks
@@ -123,7 +128,7 @@ class Main(BaseMain):
                     
                     
                     while not scraper_info['done']:
-                        time.sleep(0.2)
+                        time.sleep(0.3)
                         scraper_info['done'] = scraper.run(continuous=False)
                         self.update_monitoring(scraper_info)
                         Utils.write_json(self.monitoring.to_dict(),f"data/html_json/scraper_monitoring.json")
@@ -156,7 +161,14 @@ class Main(BaseMain):
         return KijijiCompletionFSM(
             db_config=self._get_db_config()
         )
-
+        
+    def _initialize_dead_link_scraper(self):
+        """
+        Initialize and return the dead link scraper based on the configuration.
+        """
+        return KijijiLinkCheckFSM(
+            db_config=self._get_db_config()
+        )
     def _get_db_config(self):
         """
         Return the database configuration dictionary.

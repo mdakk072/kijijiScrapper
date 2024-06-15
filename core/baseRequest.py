@@ -166,13 +166,11 @@ class BaseRequest:
         self.num_requests += 1
         try:
             response: requests.Response = self.session.request(method, url, headers=headers, timeout=self.timeout, **kwargs)
-            response.raise_for_status()
             self.successful_requests += 1
             return response
         except requests.RequestException as e:
             self.failed_requests += 1
             self.logger.error(f"Error during {method} request to {url}: {e}")
-            raise
 
     def delay_action(self, min_delay: float = 1.0, max_delay: float = 3.0):
         """
