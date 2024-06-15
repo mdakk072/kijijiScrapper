@@ -17,8 +17,8 @@ connection_info: "mongodb://10.0.0.110:27017"
 
 # Scrapper configuration
 do_pagination: true 
-do_completion: false
-
+do_completion: true
+do_dead_link : true
 # Pagination configuration
 pagination:
   base_url: "https://www.kijiji.ca/b-{category}/levis/page-{start_page}/{category-id}?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
@@ -30,5 +30,5 @@ pagination:
     address: 'Côte-des-Neiges, Côte-Des-Neiges—Notre-Dame-De-Grâce, Montreal, QC'
     latitude: '45.4767847'
     longitude: '-73.61431329999999'
-    radius: '5.0'
+    radius: '10.0'
     sort: 'dateDesc'
