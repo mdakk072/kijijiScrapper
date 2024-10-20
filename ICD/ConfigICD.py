@@ -149,7 +149,7 @@ class ConfigICD:
             "log_level": {"type": "TEXT", "default": "INFO"},
             "log_console": {"type": "INTEGER", "default": 0},
             "log_file": {"type": "INTEGER", "default": 1},
-            "db_name": {"type": "TEXT", "default": "kijiji"},
+            "db_name": {"type": "TEXT", "default": "coreAppScraper"},
             "table_name": {"type": "TEXT"},
             "db_type": {"type": "TEXT"},
             "connection_info": {"type": "TEXT"},
@@ -167,17 +167,11 @@ class PaginationScrapperICD:
                  max_zero_added: Optional[int] = None,
                  url_settings: Optional[Dict[str, Any]] = None):
    
-        self.base_url = base_url or "https://www.kijiji.ca/b-{category}/levis/page-{start_page}/{category-id}?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"
+        self.base_url = base_url or None
         self.start_page = start_page or 1
         self.max_zero_added = max_zero_added or 2
         self.url_settings = url_settings or {
             "category": None,
-            "category-id": None,
-            "address": None,
-            "latitude": None,
-            "longitude":None,
-            "radius": None,
-            "sort": 'dateDesc'
         }
 
     def parse(self, data: Dict[str, Any]) -> bool:
@@ -187,7 +181,7 @@ class PaginationScrapperICD:
         self.max_zero_added = data.get("max_zero_added", self.max_zero_added)
         self.url_settings = data.get("url_settings", self.url_settings)
 
-        if not all(self.url_settings.get(key) for key in ["category", "category-id", "address"]):
+        if not all(self.url_settings.get(key) for key in ["category"]) or not self.base_url:
             return False
         
         return True
@@ -225,12 +219,6 @@ class PaginationScrapperICD:
                 "description": "Settings for the URL.",
                 "schema": {
                     "category": {"type": "string", "label": "Category", "description": "Category of the items."},
-                    "category-id": {"type": "string", "label": "Category ID", "description": "ID of the category."},
-                    "address": {"type": "string", "label": "Address", "description": "Address for the search."},
-                    "latitude": {"type": "string", "label": "Latitude", "description": "Latitude coordinate."},
-                    "longitude": {"type": "string", "label": "Longitude", "description": "Longitude coordinate."},
-                    "radius": {"type": "string", "label": "Radius", "description": "Search radius."},
-                    "sort": {"type": "string", "label": "Sort Order", "description": "Sorting order of the search results."}
                 }
             }
         }
@@ -239,19 +227,13 @@ class PaginationScrapperICD:
     def get_schema() -> Dict[str, Dict[str, Any]]:
         """Return a dictionary representing the configuration schema with attributes."""
         return {
-            "base_url": {"type": "TEXT", "default": "https://www.kijiji.ca/b-{category}/levis/page-{start_page}/{category-id}?address={address}&ll={latitude},{longitude}&radius={radius}&ad=offer&sort={sort}"},
+            "base_url": {"type": "TEXT", "default": ""},
             "start_page": {"type": "INTEGER", "default": 1},
             "max_zero_added": {"type": "INTEGER", "default": 2},
             "url_settings": {
                 "type": "DICT", 
                 "default": {
                     "category":None,
-                    "category-id":None,
-                    "address": None,
-                    "latitude": None,
-                    "longitude": None,
-                    "radius": '1.0',
-                    "sort": 'dateDesc'
                 }
             }
         }
