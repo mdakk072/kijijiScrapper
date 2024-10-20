@@ -1,8 +1,8 @@
 import time
 from datetime import datetime, timedelta
-from ICD.KijijiAdICD import KijijiAd
+from ICD.EntityAdICD import EntityAd
 from core.coreDatabase.DatabaseFactory import DatabaseFactory
-from scraper.kijijiScraper import KijijiScraper
+from scraper.actionScraper import ActionScraper
 from enum import Enum, auto
 from core.baseFSM import BaseFSM
 
@@ -12,7 +12,7 @@ class State(Enum):
     UPDATE_AD = auto()
     END = auto()
     
-class KijijiLinkCheckFSM(BaseFSM):
+class LinkCheckFSM(BaseFSM):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -22,15 +22,15 @@ class KijijiLinkCheckFSM(BaseFSM):
         self.current_state = self.States.FETCH_AD
 
         self.headers = getattr(self, "headers", None)
-        self.kijiji_scraper = KijijiScraper(headers=self.headers)
+        self.action_scraper = ActionScraper(headers=self.headers)
         
         self.db_config = getattr(self, "db_config", None)
         if not self.db_config:
             self.logger.error("No database configuration provided.")
             raise ValueError("Missing required parameter: db_config.")
         
-        kijijiAdSchema = KijijiAd.get_schema()
-        self.database = DatabaseFactory.create_database(**self.db_config, schema=kijijiAdSchema)
+        AdSchema = EntityAd.get_schema()
+        self.database = DatabaseFactory.create_database(**self.db_config, schema=AdSchema)
         self.database.initialize()
         self.ad = None
         self.response = None
@@ -54,9 +54,9 @@ class KijijiLinkCheckFSM(BaseFSM):
         self.logger.debug("Entering CHECK_LINK state.")
         url = self.ad.get('url')
         self.logger.info(f"Checking link: {url}")
-        self.kijiji_scraper.delay_action(1.5, 3)
-        self.response = self.kijiji_scraper.fetch_page(url)
-        if self.response == 404 or self.kijiji_scraper.is_link_dead(self.response):
+        self.action_scraper.delay_action(1.5, 3)
+        self.response = self.action_scraper.fetch_page(url)
+        if self.response == 404 or self.action_scraper.is_link_dead(self.response):
             self.logger.warning(f"Link is dead: {url}")
             ad = self.ad.copy()
             ad['process_state'] = 'COMPLETED'

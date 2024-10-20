@@ -1,7 +1,7 @@
 import time
 from core.coreDatabase.DatabaseFactory import DatabaseFactory
-from ICD.KijijiAdICD import KijijiAd
-from scraper.kijijiScraper import KijijiScraper
+from ICD.EntityAdICD import EntityAd
+from scraper.actionScraper import ActionScraper
 from enum import Enum, auto
 from core.utils import Utils
 from core.baseFSM import BaseFSM, BaseState
@@ -15,31 +15,31 @@ class State(Enum):
     UPDATE_AD = auto()
     END = auto()
     
-class KijijiCompletionFSM(BaseFSM):
+class CompletionFSM(BaseFSM):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def _initialize(self):
         """
-        Perform additional initialization specific to KijijiPaginationFSM.
+        Perform additional initialization specific to PaginationFSM.
 
         This method sets up the initial state, checks for required parameters,
-        and initializes the Kijiji scraper.
+        and initializes the  scraper.
         """
         self.States = State
         self.current_state = self.States.FETCH_AD
 
         # Set base default values if not provided in kwargs
         self.headers = getattr(self, "headers", None)
-        self.kijiji_scraper = KijijiScraper(headers=self.headers)
+        self.action_scraper = ActionScraper(headers=self.headers)
         
         self.db_config = getattr(self, "db_config", None)
         if not self.db_config:
             self.logger.error("No database configuration provided.")
             raise ValueError("Missing required parameter: db_config.")
-        kijijiAdSchema = KijijiAd.get_schema()
-        self.database = DatabaseFactory.create_database(**self.db_config, schema=kijijiAdSchema)
+        AdSchema = EntityAd.get_schema()
+        self.database = DatabaseFactory.create_database(**self.db_config, schema=AdSchema)
         self.database.initialize()
         self.ad = None
         self.response = None
@@ -54,16 +54,16 @@ class KijijiCompletionFSM(BaseFSM):
     
     def GOTO_LINK(self):
             url = self.ad.get('url')
-            self.kijiji_scraper.delay_action(1.5,3)
-            self.response = self.kijiji_scraper.fetch_page(url)
-            return self.States.DEAD_AD if self.kijiji_scraper.is_link_dead(self.response) else self.States.extract_ad_JSON
+            self.action_scraper.delay_action(1.5,3)
+            self.response = self.action_scraper.fetch_page(url)
+            return self.States.DEAD_AD if self.action_scraper.is_link_dead(self.response) else self.States.extract_ad_JSON
             
     def extract_ad_JSON(self):
-            self.extracted_json = self.kijiji_scraper.extract_ad_JSON(self.response)
+            self.extracted_json = self.action_scraper.extract_ad_JSON(self.response)
             return self.States.FORMAT_DATA if self.extracted_json else self.States.END
             
     def FORMAT_DATA(self):
-            self.formatted_ad_data = self.kijiji_scraper.format_ad_data(self.extracted_json,stringnify_json=self.strignify_json)
+            self.formatted_ad_data = self.action_scraper.format_ad_data(self.extracted_json,stringnify_json=self.strignify_json)
             return self.current_state.UPDATE_AD
         
     def UPDATE_AD(self):
