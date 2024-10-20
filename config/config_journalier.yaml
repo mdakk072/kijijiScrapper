@@ -1,0 +1,29 @@
+
+# Application configuration
+name: "avito_ journalier_immobilier"
+version: "0.1.0.0"
+
+# Logging configuration
+log_path: "data/log/journalier_immobilier.log"
+log_level: "DEBUG"
+log_console: false
+log_file: true
+
+# Database configuration
+db_name: "avito"
+table_name: "avito_journalier_immobilier"
+db_type: "mongodb"
+connection_info: "mongodb://10.0.0.110:27017"
+
+# Scrapper configuration
+do_pagination: true 
+do_completion: true
+do_dead_link : false
+# Pagination configuration
+pagination:
+  base_url: "https://www.avito.ma/fr/maroc/{category}?o={start_page}"
+  start_page: 1
+  max_zero_added: 5
+  url_settings:
+    category: 'locations_de_vacances-location_de_vacances'
+

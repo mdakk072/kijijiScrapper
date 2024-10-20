@@ -4,15 +4,15 @@ from ICD.ConfigICD import ConfigICD
 from ICD.monitoringICD import MonitoringICD
 from core.utils import Utils
 from core.baseMain import BaseMain
-from scraper.completionScraper import KijijiCompletionFSM
-from scraper.paginationScraper import KijijiPaginationFSM
-from scraper.deadLinkScraper import KijijiLinkCheckFSM
+from scraper.completionScraper import CompletionFSM
+from scraper.paginationScraper import PaginationFSM
+from scraper.deadLinkScraper import LinkCheckFSM
 
 from datetime import datetime
 from core.ipc import IPC
 class Main(BaseMain):
     """
-    Main class for running the Kijiji Scraper.
+    Main class for running the Scraper.
     
     Inherits from BaseMain and handles the initialization, configuration parsing,
     and execution of the pagination and completion scrapers.
@@ -28,7 +28,7 @@ class Main(BaseMain):
         if not self.parse_config():
             raise Exception("Failed to parse configuration.")
         self.init_logger(self.config.log_path, self.config.log_level, self.config.log_console, self.config.log_file)
-        self.logger.info("======================================== Kijiji Scraper ========================================")
+        self.logger.info(f"======================================== {self.config.name} core Scraper ========================================")
         self.logger.info(f"Starting {self.config.name} v{self.config.version}")
         self.monitoring = MonitoringICD(config=self.config.to_dict(),id=self.id)
         self.ipc = IPC()    if self.publish_address else None
@@ -85,14 +85,14 @@ class Main(BaseMain):
         self.monitoring.status = scraper_info.get('scraper_name', 'UNKNOWN')
         self.monitoring.state = scraper_info.get('scraper').current_state.name
         scraper = scraper_info.get('scraper')
-        self.monitoring.num_requests = scraper.kijiji_scraper.num_requests
-        self.monitoring.successful_requests = scraper.kijiji_scraper.successful_requests 
-        self.monitoring.failed_requests = scraper.kijiji_scraper.failed_requests
+        self.monitoring.num_requests = scraper.action_scraper.num_requests
+        self.monitoring.successful_requests = scraper.action_scraper.successful_requests 
+        self.monitoring.failed_requests = scraper.action_scraper.failed_requests
         
         # Calculate and update requests_per_minute
         duration_minutes = duration.total_seconds() / 60
         if duration_minutes > 0:
-            self.monitoring.requests_per_minute = round(scraper.kijiji_scraper.num_requests / duration_minutes, 2)
+            self.monitoring.requests_per_minute = round(scraper.action_scraper.num_requests / duration_minutes, 2)
 
     def run(self):
         """
@@ -146,7 +146,7 @@ class Main(BaseMain):
         """
         Initialize and return the pagination scraper based on the configuration.
         """
-        return KijijiPaginationFSM(
+        return PaginationFSM(
             url_settings=self.config.pagination.url_settings,
             base_url=self.config.pagination.base_url,
             start_page=self.config.pagination.start_page,
@@ -158,7 +158,7 @@ class Main(BaseMain):
         """
         Initialize and return the completion scraper based on the configuration.
         """
-        return KijijiCompletionFSM(
+        return CompletionFSM(
             db_config=self._get_db_config()
         )
         
@@ -166,7 +166,7 @@ class Main(BaseMain):
         """
         Initialize and return the dead link scraper based on the configuration.
         """
-        return KijijiLinkCheckFSM(
+        return LinkCheckFSM(
             db_config=self._get_db_config()
         )
     def _get_db_config(self):

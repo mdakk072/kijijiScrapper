@@ -11,3 +11,4 @@ sqlalchemy
 jsonpath-ng
 pymongo
 pyzmq
+brotli
