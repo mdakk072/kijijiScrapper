@@ -98,15 +98,9 @@ class BaseRequest:
         self.session.mount('http://', adapter)
         self.session.mount('https://', adapter)
         self.default_headers: Dict[str, str] = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
-            "Cache-Control": "max-age=0",
-            "Referer": "https://www.google.com/",
-            "DNT": "1"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5"
         }
         self.headers: Dict[str, str] = headers  if headers is not None else self.default_headers
         
@@ -165,7 +159,7 @@ class BaseRequest:
             
         self.num_requests += 1
         try:
-            response: requests.Response = self.session.request(method, url, headers=headers, timeout=self.timeout, **kwargs)
+            response: requests.Response = self.session.request(method, url,headers=headers, timeout=self.timeout, **kwargs)
             self.successful_requests += 1
             return response
         except requests.RequestException as e:
